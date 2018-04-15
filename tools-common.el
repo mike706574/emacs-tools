@@ -13,8 +13,8 @@
      (directory-files dir))))
 
 (defun tools-common-find-file-upwards (current-dir file-re)
-  (let* ((parent-dir (parent-directory (expand-file-name current-dir)))
-        (file (tools-commons-first-matching-file parent-dir file-re)))
+  (let* ((parent-dir (tools-common-parent-directory (expand-file-name current-dir)))
+        (file (tools-common-first-matching-file parent-dir file-re)))
     (if file
         (concat parent-dir file)
       (when parent-dir
@@ -23,4 +23,4 @@
 (defun tools-common-find-containing-directory-upwards (file-re)
   (let ((file-path (tools-common-find-file-upwards (buffer-file-name) file-re)))
     (when file-path
-      (parent-directory file-path))))
+      (tools-common-parent-directory file-path))))
