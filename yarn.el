@@ -30,7 +30,7 @@
       (if (s-blank? input) default-term input))))
   (yarn-in-project
    (lambda (d)
-     (grep (concat "grep --color --exclude-dir=.git --exclude-dir=target --exclude-dir=experiments --exclude-dir=build --exclude-dir=lib --exclude-dir=scripts --exclude-dir=public --exclude=dir=src/content --exclude-dir=coverage --exclude-dir=node_modules --exclude=yarn.lock --exclude=package-lock.json --exclude-dir=src/content -nriH -e \"" term "\" " d)))))
+     (grep (concat "grep --color --exclude-dir=.git --exclude-dir=target --exclude-dir=build --exclude-dir=lib --exclude-dir=dist --exclude-dir=scripts --exclude-dir=public --exclude-dir=coverage --exclude-dir=node_modules --exclude=yarn.lock --exclude=package-lock.json --exclude-dir=src/content -nriH -e \"" term "\" " d)))))
 
 (defvar yarn-js-grep-history nil)
 (defun yarn-js-grep (term)
@@ -44,4 +44,4 @@
       (if (s-blank? input) default-term input))))
   (yarn-in-project
    (lambda (d)
-     (grep (concat "grep --color --exclude-dir=.git --exclude-dir=target --exclude-dir=node_modules --exclude-dir=build --include=*.js -nriH -e \"" term "\" " d)))))
+     (grep (concat "grep --color --exclude-dir=.git --exclude-dir=target --exclude-dir=build --exclude-dir=lib --exclude-dir=dist --exclude-dir=scripts --exclude-dir=public --exclude-dir=coverage --exclude-dir=node_modules --exclude=yarn.lock --exclude=package-lock.json --exclude-dir=build --include=*.js -nriH -e \"" term "\" " d)))))
