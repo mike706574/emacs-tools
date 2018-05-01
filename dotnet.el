@@ -1,7 +1,7 @@
 (require 'tools-common)
 
 (defun dotnet-in-project (f)
-  (let ((default-directory (tools-common-find-containing-directory-upwards "project.clj")))
+  (let ((default-directory (tools-common-find-containing-directory-upwards "*.sln")))
     (if default-directory
       (funcall f default-directory)
       (error "Not inside a dotnet project!"))))
